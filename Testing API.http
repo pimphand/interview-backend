@@ -1,5 +1,27 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=PhpStorm
+### Login Request (POST)
+POST http://interview.test/api/login
+Content-Type: application/json
 
-###
+{
+    "email": "test@example.com",
+    "password": "password"
+}
+
+### Get User Request (GET)
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vaW50ZXJ2aWV3LnRlc3QvYXBpL2xvZ2luIiwiaWF0IjoxNzMzMTU2NDM2LCJleHAiOjE3MzMxNjAwMzYsIm5iZiI6MTczMzE1NjQzNiwianRpIjoidWtKUHNiOTZQSnRlRlMycCIsInN1YiI6IjlkYTEzMGY2LWM5ZTktNGMzYi04OGQxLTRjYmFiNmI4YTg0OSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.kBPg8T6J3oyR_xt2yGZnvMcglFFP9iOl7W81Dy3q2Fc
+
+GET http://interview.test/api/user
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### Create Company Request (POST)
+POST http://interview.test/api/companies
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Company Name",
+    "email": "company@gmail.com",
+    "phone": "1234567890"
+}
